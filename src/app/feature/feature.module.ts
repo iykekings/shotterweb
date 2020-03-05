@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { InputComponent } from './input/input.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule,
     AngularSvgIconModule.forRoot()
   ],
   exports: [InputComponent]

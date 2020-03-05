@@ -1,11 +1,11 @@
 <form [formGroup]="loginForm">
   <app-input [isInValid]="isInValid(email)" [isValid]="isValid(email)" [src]="'assets/svgs/mail.svg'"
     [errorMsg]="'Must be a valid email'" [id]="'email'">
-    <input type="email" id="email" formControlName="email" required>
+    <input type="email" id="email" formControlName="email" required placeholder="Email">
   </app-input>
   <app-input [isInValid]="isInValid(password)" [isValid]="isValid(password)" [src]="'assets/svgs/lock.svg'"
     [errorMsg]="'Must be a strong password'" [id]="'password'">
-    <input type="password" id="password" formControlName="password" required>
+    <input type="password" id="password" formControlName="password" required placeholder="Password">
   </app-input>
   <p>{{loginForm.value | json}}</p>
   <p>{{loginForm.valid | json}}</p>

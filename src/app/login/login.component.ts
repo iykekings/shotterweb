@@ -8,7 +8,6 @@ import { patternValidator } from 'src/shared/util';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required,
     patternValidator(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i)

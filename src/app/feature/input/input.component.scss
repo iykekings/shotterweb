@@ -1,20 +1,20 @@
 .input {
   padding: 5px 1rem;
-  label {
+  .sub-input {
     display: flex;
     align-items: center;
-    padding: 5px 1rem;
+    padding: 10px 1rem;
     border: 1px solid rgba(27, 121, 158, 0.096);
     &.valid {
       border: 1px solid rgba(20, 177, 80, 0.349);
     }
     input {
       flex: 1 1 100%;
-  border: none;
-  outline: none;
-  font-size: 1.2rem;
-  color: #636363;
-  padding: 0 5px;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      color: #636363;
+      padding: 0 5px;
     }
   }
   p.error {
@@ -30,6 +30,9 @@
 }
 
 svg-icon  {
+&.cancel > svg {
+  width: 10px;
+}
 &.hidden {
   display: none;
 }

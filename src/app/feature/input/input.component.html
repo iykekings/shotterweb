@@ -1,12 +1,13 @@
 <div class="input">
-  <label [for]="id" [class.valid]="isValid">
+  <div class="sub-input" [class.valid]="isValid">
     <svg-icon class="tiny_icon" [applyCss]="true" [src]="src"></svg-icon>
     <ng-content></ng-content>
     <svg-icon class="tiny_icon" [class]="isValid ? 'show': 'hidden'" [applyCss]="true" src="assets/svgs/check.svg">
     </svg-icon>
-    <svg-icon class="tiny_icon" [class]="isInValid ? 'show': 'hidden'" [applyCss]="true" src="assets/svgs/cancel.svg">
+    <svg-icon class="tiny_icon cancel" [class]="isInValid ? 'show': 'hidden'" [applyCss]="true"
+      src="assets/svgs/cancel.svg">
     </svg-icon>
-  </label>
+  </div>
   <p [class]="isInValid ? 'show': 'hidden'" class="error">
     {{errorMsg}}
   </p>
