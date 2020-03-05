@@ -1,0 +1,42 @@
+.input {
+  padding: 5px 1rem;
+  label {
+    display: flex;
+    align-items: center;
+    padding: 5px 1rem;
+    border: 1px solid rgba(27, 121, 158, 0.096);
+    &.valid {
+      border: 1px solid rgba(20, 177, 80, 0.349);
+    }
+    input {
+      flex: 1 1 100%;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  color: #636363;
+  padding: 0 5px;
+    }
+  }
+  p.error {
+    font-size: 11px;
+    color: orangered;
+    &.show {
+      opacity: 1;
+    }
+    &.hidden {
+      opacity: 0;
+    }
+  }
+}
+
+svg-icon  {
+&.hidden {
+  display: none;
+}
+&.show {
+  display: block;
+}
+& > svg {
+  width: 1rem;
+}
+}
