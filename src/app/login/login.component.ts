@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { patternValidator } from 'src/shared/util';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required,
     patternValidator(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i)
@@ -17,10 +18,8 @@ export class LoginComponent implements OnInit {
     ])
   });
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
+  constructor(public titleService: Title) {
+    titleService.setTitle('Login | Shotter');
   }
 
   get email() {

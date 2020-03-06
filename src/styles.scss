@@ -6,10 +6,18 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --body-bg: #393C5B;
+  --black: #2a2a2a;
+  --white: #fff;
+  --font-black: #2a2a2a;
+  --font-grey: #636363;
+  --font-white: #eeeeee;
+  --yellow: #f9a826;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   padding: 0px;
   margin: 0;
+  color: var(--font-white)
 }

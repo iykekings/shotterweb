@@ -1,0 +1,48 @@
+main {
+  background-color: var(--body-bg);
+  position: relative;
+  min-height: 100vh;
+
+  svg-icon#moon {
+    z-index: 0;
+    position: absolute;
+    svg {
+      height: auto;
+      width: 450px;
+    }
+  }
+
+  svg-icon#logo {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+
+    svg {
+      width: 60px;
+    }
+  }
+  #logo-text {
+    position: absolute;
+    z-index: 2;
+    left: 80px;
+    top: 30px;
+    display: flex;
+    align-items: flex-start;
+    h1, span {
+      color: var(--font-black);
+    }
+    h1 {
+      font-weight: normal;
+    }
+    span {
+      margin-left: 5px;
+      color: var(--yellow);
+    }
+  }
+
+  section {
+  z-index: 1;
+  position: relative;
+  }
+}
