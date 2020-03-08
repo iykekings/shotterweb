@@ -35,4 +35,10 @@ export class LoginComponent {
     return input.invalid && (input.dirty || input.touched);
   }
 
+  login() {
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    }
+  }
+
 }

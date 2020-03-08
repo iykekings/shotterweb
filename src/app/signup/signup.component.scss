@@ -1,0 +1,38 @@
+:host {
+  width: 100%;
+}
+input {
+  flex: 1 1 100%;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: var(--font-white);
+  padding: 0 5px;
+}
+
+#signup {
+  padding: 10vw;
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 500px;
+  @media screen and (max-width: 500px) {
+    min-width: 300px;
+  }
+
+  h2 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+  }
+  form {
+    button[type=submit] {
+      background-color: var(--yellow);
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: 10px 2rem;
+    }
+  }
+}

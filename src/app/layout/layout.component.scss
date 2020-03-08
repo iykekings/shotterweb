@@ -1,4 +1,6 @@
 main {
+  display: flex;
+  flex-direction: column;
   background-color: var(--body-bg);
   position: relative;
   min-height: 100vh;
@@ -9,40 +11,54 @@ main {
     svg {
       height: auto;
       width: 450px;
+      @media screen and (max-width: 850px) {
+        width: 350px;
+      }
+      @media screen and (max-width: 500px) {
+        width: 230px;
+      }
     }
   }
-
-  svg-icon#logo {
-    position: absolute;
-    z-index: 2;
-    top: 10px;
-    left: 10px;
-
-    svg {
-      width: 60px;
-    }
-  }
-  #logo-text {
-    position: absolute;
-    z-index: 2;
-    left: 80px;
-    top: 30px;
+  nav {
     display: flex;
-    align-items: flex-start;
-    h1, span {
-      color: var(--font-black);
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+    svg-icon#logo {
+      svg {
+        width: 60px;
+      }
     }
-    h1 {
-      font-weight: normal;
-    }
-    span {
-      margin-left: 5px;
-      color: var(--yellow);
+    #logo-text {
+      display: flex;
+      align-items: flex-start;
+      h1, span {
+        color: var(--font-black);
+      }
+      h1 {
+        font-weight: normal;
+        font-size: 2rem;
+      }
+      span {
+        margin-left: 5px;
+        color: var(--yellow);
+      }
     }
   }
 
   section {
-  z-index: 1;
-  position: relative;
+    width: 100%;
+    flex: 1 0 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > * {
+      width: 100%;
+    }
+    ng-component {
+      width: 100%;
+    }
   }
 }
