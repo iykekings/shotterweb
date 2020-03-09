@@ -12,10 +12,9 @@ input {
 }
 
 #signup {
-  padding: 10vw;
+  padding: 1rem 5vw;
   margin: 0 auto;
   max-width: 500px;
-  min-width: 500px;
   @media screen and (max-width: 500px) {
     min-width: 300px;
   }
@@ -33,6 +32,7 @@ input {
       border-radius: 5px;
       font-size: 1rem;
       padding: 10px 2rem;
+      float: right;
     }
   }
 }
