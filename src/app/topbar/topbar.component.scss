@@ -1,0 +1,17 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: var(--yellow);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .circle {
+    height: 20px;
+    margin-right: 10px;
+    width: 20px;
+    background-color: var(--white);
+    border-radius: 50%;
+  }
+}

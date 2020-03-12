@@ -15,6 +15,10 @@
   --yellow: #f9a826;
 }
 
+body {
+  background-color: var(--body-bg);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   padding: 0px;

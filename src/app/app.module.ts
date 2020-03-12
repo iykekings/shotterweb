@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FeatureModule } from './feature/feature.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
+import { TopbarComponent } from './topbar/topbar.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LayoutComponent } from './layout/layout.component';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    LayoutComponent
+    LayoutComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
