@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { take, catchError } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import Owner from 'src/interfaces/Owner';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 interface Token {
     token: string;
@@ -48,5 +49,17 @@ export class AuthService {
         return this.http
             .post<Owner>(`${this.baseUrl}/create`, owner)
             .pipe(take(1));
+    }
+
+    isLoggedIn(): boolean {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            return false;
+        }
+        const helper = new JwtHelperService();
+        if (helper.isTokenExpired(token)) {
+            return false;
+        }
+        return true;
     }
 }

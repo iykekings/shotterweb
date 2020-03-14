@@ -7,8 +7,9 @@ import {
     ValidationErrors,
 } from '@angular/forms';
 import { patternValidator } from 'src/shared/util';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 import Owner from 'src/interfaces/Owner';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './signup.component.html',
@@ -33,9 +34,13 @@ export class SignupComponent implements OnInit {
         ]),
     });
 
-    constructor(private auth: AuthService) {}
+    constructor(private auth: AuthService, private router: Router) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        if (this.auth.isLoggedIn()) {
+            this.router.navigate(['/dashboard']);
+        }
+    }
 
     get name() {
         return this.signupForm.get('name');

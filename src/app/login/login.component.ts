@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
     FormGroup,
     FormControl,
@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { patternValidator } from 'src/shared/util';
 import { Title } from '@angular/platform-browser';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
     loginForm = new FormGroup({
         email: new FormControl('', [
             Validators.required,
@@ -32,6 +32,12 @@ export class LoginComponent {
         private router: Router
     ) {
         titleService.setTitle('Login | Shotter');
+    }
+
+    ngOnInit(): void {
+        if (this.auth.isLoggedIn()) {
+            this.router.navigate(['/dashboard']);
+        }
     }
 
     get email() {
