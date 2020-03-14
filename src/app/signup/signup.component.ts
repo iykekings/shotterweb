@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
     signupForm = new FormGroup({
         name: new FormControl('', [Validators.required]),
         email: new FormControl('', [
@@ -34,13 +34,7 @@ export class SignupComponent implements OnInit {
         ]),
     });
 
-    constructor(private auth: AuthService, private router: Router) {}
-
-    ngOnInit(): void {
-        if (this.auth.isLoggedIn()) {
-            this.router.navigate(['/dashboard']);
-        }
-    }
+    constructor(private auth: AuthService) {}
 
     get name() {
         return this.signupForm.get('name');

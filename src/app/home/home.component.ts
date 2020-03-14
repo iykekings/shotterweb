@@ -6,12 +6,6 @@ import { Router } from '@angular/router';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-    constructor(private auth: AuthService, private router: Router) {}
-
-    ngOnInit(): void {
-        if (this.auth.isLoggedIn()) {
-            this.router.navigate(['/dashboard']);
-        }
-    }
+export class HomeComponent {
+    constructor() {}
 }

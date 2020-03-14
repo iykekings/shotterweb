@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     loginForm = new FormGroup({
         email: new FormControl('', [
             Validators.required,
@@ -32,12 +32,6 @@ export class LoginComponent implements OnInit {
         private router: Router
     ) {
         titleService.setTitle('Login | Shotter');
-    }
-
-    ngOnInit(): void {
-        if (this.auth.isLoggedIn()) {
-            this.router.navigate(['/dashboard']);
-        }
     }
 
     get email() {
