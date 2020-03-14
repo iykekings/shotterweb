@@ -3,22 +3,25 @@ import { filter } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-  selector: 'app-topbar',
-  templateUrl: './topbar.component.html',
-  styleUrls: ['./topbar.component.scss']
+    selector: 'app-topbar',
+    templateUrl: './topbar.component.html',
+    styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent implements OnInit {
-  link = 'login';
+    link = 'login';
 
-  constructor(private route: Router) { }
+    constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.route.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe(event => {
-        console.log('this is what your looking for ', event.url);
-        this.link = event.url;
-      });
-  }
+    ngOnInit(): void {
+        this.router.events
+            .pipe(filter((event: any) => event instanceof NavigationEnd))
+            .subscribe(event => {
+                this.link = event.url;
+            });
+    }
 
+    logout() {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+    }
 }

@@ -3,7 +3,7 @@
     <a *ngIf="link === '/' || link === '/signup'" routerLink="/login">
         Login
     </a>
-    <a *ngIf="link === '/dashboard'" routerLink="/">
+    <a *ngIf="link === '/dashboard'" (click)="logout()">
         Log out
     </a>
     <a *ngIf="link === '/login'" routerLink="/signup">
