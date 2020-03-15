@@ -15,6 +15,7 @@ import { FeatureModule } from './feature/feature.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TopbarComponent } from './topbar/topbar.component';
     SignupComponent,
     DashboardComponent,
     LayoutComponent,
-    TopbarComponent
+    TopbarComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { TopbarComponent } from './topbar/topbar.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CardComponent]
 })
 export class AppModule { }

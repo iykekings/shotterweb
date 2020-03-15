@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { UrlService } from '../url.service';
+import Url from 'src/interfaces/Url';
 
 @Component({
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-    constructor() {}
+    urls: Url[];
+
+    constructor(private urlService: UrlService) {}
 
     ngOnInit(): void {
-        const helper = new JwtHelperService();
-        console.log(helper.decodeToken(localStorage.getItem('token')));
+        this.fetchAllUrls();
+    }
+
+    fetchAllUrls() {
+        this.urlService.fetchAllUrlByUser().subscribe(data => {
+            this.urls = data;
+            console.log(data);
+        });
     }
 }
