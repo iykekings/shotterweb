@@ -27,11 +27,13 @@ input {
     }
     form {
         button[type='submit'] {
-            background-color: var(--yellow);
+            background-color: var(--btn-bg);
+            color: var(--btn-font);
             outline: none;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
+            font-weight: 500;
             padding: 10px 2rem;
             float: right;
         }

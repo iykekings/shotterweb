@@ -13,10 +13,12 @@
     }
 
     button {
-        background-color: var(--yellow);
+        background-color: var(--btn-bg);
+        color: var(--btn-font);
         padding: 10px 2rem;
         border-radius: 5px;
         font-size: 1rem;
+        font-weight: 500;
         border: none;
         float: right;
         outline: none;

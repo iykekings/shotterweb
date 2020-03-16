@@ -21,6 +21,8 @@ export class TopbarComponent implements OnInit {
             '--font-grey': '#636363',
             '--font-white': '#eeeeee',
             '--yellow': '#f9a826',
+            '--btn-bg': '#f9a826',
+            '--btn-font': '#2a2a2a',
         },
         light: {
             '--body-bg': '#F9F9F9',
@@ -30,6 +32,8 @@ export class TopbarComponent implements OnInit {
             '--font-grey': '#636363',
             '--font-white': '#2a2a2a',
             '--yellow': '#6C63FF',
+            '--btn-bg': '#6C63FF',
+            '--btn-font': '#ffffff',
         },
     };
 
