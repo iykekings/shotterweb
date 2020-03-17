@@ -1,7 +1,61 @@
 #dashboard {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     grid-gap: 1rem;
     width: 100vw;
     padding: 0 5vw;
+}
+
+#dash-wrapper {
+    padding: 10vw;
+    app-input {
+        textarea {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 1rem;
+            resize: none;
+            height: 40px;
+            outline: none;
+        }
+    }
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    #gray-span {
+        color: var(--font-grey);
+    }
+    input {
+        font-size: 1.5rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: green solid 1px;
+    }
+    svg-icon {
+        width: 1.5rem;
+        height: auto;
+    }
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+}
+
+#created-links {
+    text-align: center;
+    margin-top: 4rem;
+    h2 {
+        margin-bottom: 1rem;
+    }
 }

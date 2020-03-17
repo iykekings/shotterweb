@@ -16,7 +16,7 @@ export class TopbarComponent implements OnInit {
         dark: {
             '--body-bg': '#393C5B',
             '--black': '#2a2a2a',
-            '--white': '#ffff',
+            '--white': '#ffffff',
             '--font-black': '#2a2a2a',
             '--font-grey': '#636363',
             '--font-white': '#eeeeee',

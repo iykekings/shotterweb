@@ -1,28 +1,34 @@
-<article>
-    <div class="image">
-        <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
-    </div>
-    <div class="content">
-        <h4>{{ url.title || url.directory }}</h4>
-        <h5>{{ 'https://sh.ikeze.dev/' + url.directory }}</h5>
-        <p>{{ url.description }}</p>
-        <div class="meta">
-            <span class="link">{{ hostname(url.redirect) }}</span>
-            <div class="spacer"></div>
-            <div class="icon">
-                <svg-icon
-                    src="assets/svgs/calendar.svg"
-                    [applyCss]="true"
-                ></svg-icon>
-                <span>{{ renderDate(url.createdAt) }}</span>
-            </div>
-            <div class="icon">
-                <svg-icon
-                    src="assets/svgs/click.svg"
-                    [applyCss]="true"
-                ></svg-icon>
-                <span>{{ url.clicks }}</span>
+<a
+    [href]="baseUrl + '/r/' + url.directory"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <article>
+        <div class="image">
+            <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
+        </div>
+        <div class="content">
+            <h4>{{ url.title || url.directory }}</h4>
+            <h5>{{ 'https://sh.ikeze.dev/' + url.directory }}</h5>
+            <p>{{ url.description }}</p>
+            <div class="meta">
+                <span class="link">{{ hostname(url.redirect) }}</span>
+                <div class="spacer"></div>
+                <div class="icon">
+                    <svg-icon
+                        src="assets/svgs/calendar.svg"
+                        [applyCss]="true"
+                    ></svg-icon>
+                    <span>{{ renderDate(url.createdAt) }}</span>
+                </div>
+                <div class="icon">
+                    <svg-icon
+                        src="assets/svgs/click.svg"
+                        [applyCss]="true"
+                    ></svg-icon>
+                    <span>{{ url.clicks }}</span>
+                </div>
             </div>
         </div>
-    </div>
-</article>
+    </article>
+</a>

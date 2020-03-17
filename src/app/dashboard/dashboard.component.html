@@ -1,4 +1,29 @@
-<h2>Created links</h2>
-<section id="dashboard">
-    <app-card *ngFor="let url of urls" [url]="url"></app-card>
-</section>
+<div id="dash-wrapper">
+    <form [formGroup]="createForm">
+        <h2>Shorten Url</h2>
+        <app-input
+            [isInValid]="isInValid(longUrl)"
+            [isValid]="isValid(longUrl)"
+            [errorMsg]="'Must be a valid URL'"
+        >
+            <textarea
+                type="url"
+                id="longUrl"
+                formControlName="longUrl"
+                required
+                placeholder="Paste long URL"
+            ></textarea>
+        </app-input>
+        <div class="custom-input">
+            <span id="gray-span">https://sh.ikeze.dev/</span>
+            <input type="text" formArrayName="shortUrl" />
+            <svg-icon [applyCss]="true" src="assets/svgs/copy.svg"></svg-icon>
+        </div>
+    </form>
+    <section id="created-links">
+        <h2>Created links</h2>
+        <section id="dashboard">
+            <app-card *ngFor="let url of urls" [url]="url"></app-card>
+        </section>
+    </section>
+</div>

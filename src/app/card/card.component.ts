@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import Url from 'src/interfaces/Url';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-card',
@@ -9,6 +10,7 @@ import Url from 'src/interfaces/Url';
 })
 export class CardComponent {
     @Input() url: Url;
+    baseUrl = environment.baseUrl;
     constructor() {}
 
     hostname(link: string) {
