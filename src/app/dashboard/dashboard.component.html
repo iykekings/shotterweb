@@ -1,23 +1,48 @@
 <div id="dash-wrapper">
-    <form [formGroup]="createForm">
+    <form [formGroup]="createForm" (ngSubmit)="create()">
         <h2>Shorten Url</h2>
         <app-input
-            [isInValid]="isInValid(longUrl)"
-            [isValid]="isValid(longUrl)"
+            [isInValid]="isInValid(redirect)"
+            [isValid]="isValid(redirect)"
             [errorMsg]="'Must be a valid URL'"
         >
             <textarea
                 type="url"
-                id="longUrl"
-                formControlName="longUrl"
+                id="redirect"
+                formControlName="redirect"
                 required
                 placeholder="Paste long URL"
             ></textarea>
         </app-input>
         <div class="custom-input">
-            <span id="gray-span">https://sh.ikeze.dev/</span>
-            <input type="text" formArrayName="shortUrl" />
-            <svg-icon [applyCss]="true" src="assets/svgs/copy.svg"></svg-icon>
+            <svg-icon
+                [applyCss]="true"
+                src="assets/svgs/copy.svg"
+                class="copy"
+            ></svg-icon>
+            <span id="gray-span">sh.ikeze.dev/</span>
+            <input
+                type="text"
+                required
+                id="directory"
+                formControlName="directory"
+                placeholder="edit_to_customise"
+            />
+            <svg-icon
+                class="tiny_icon state"
+                [class]="isValid(directory) ? 'show' : 'hidden'"
+                [applyCss]="true"
+                src="assets/svgs/check.svg"
+            >
+            </svg-icon>
+            <svg-icon
+                class="tiny_icon cancel state"
+                [class]="isInValid(directory) ? 'show' : 'hidden'"
+                [applyCss]="true"
+                src="assets/svgs/cancel.svg"
+            >
+            </svg-icon>
+            <button type="submit">Create</button>
         </div>
     </form>
     <section id="created-links">

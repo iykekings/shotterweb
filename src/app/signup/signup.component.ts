@@ -34,7 +34,7 @@ export class SignupComponent {
         ]),
     });
 
-    constructor(private auth: AuthService) {}
+    constructor(private auth: AuthService, private router: Router) {}
 
     get name() {
         return this.signupForm.get('name');
@@ -59,9 +59,9 @@ export class SignupComponent {
                 this.password.value
             );
             this.auth.register(owner).subscribe(
-                newOwner => {
-                    console.log(newOwner);
-                    // TODO: show link to login
+                _ => {
+                    console.log(this.password.value);
+                    this.router.navigate(['/login']);
                 },
                 error => console.log('Could not create user', error)
                 // TODO: show error on UI

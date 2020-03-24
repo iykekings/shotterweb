@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     grid-gap: 1rem;
-    width: 100vw;
-    padding: 0 5vw;
 }
 
 #dash-wrapper {
@@ -26,6 +24,9 @@
     display: flex;
     align-items: center;
     font-size: 1.5rem;
+    @media screen and (max-width: 500px) {
+        font-size: 1rem;
+    }
     #gray-span {
         color: var(--font-grey);
     }
@@ -33,11 +34,47 @@
         font-size: 1.5rem;
         background-color: transparent;
         border: none;
-        border-bottom: green solid 1px;
+        text-decoration: underline;
+        outline: none;
+        color: var(--yellow);
+        @media screen and (max-width: 500px) {
+            font-size: 1rem;
+        }
     }
-    svg-icon {
+    button {
+        background-color: var(--btn-bg);
+        color: var(--btn-font);
+        padding: 6px 1rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        margin-left: 10px;
+        float: right;
+        outline: none;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    svg-icon.copy {
+        margin-right: 10px;
         width: 1.5rem;
         height: auto;
+    }
+    svg-icon.state {
+        &.cancel > svg {
+            width: 10px;
+        }
+        &.hidden {
+            display: none;
+        }
+        &.show {
+            display: block;
+        }
+        & > svg {
+            width: 1rem;
+        }
     }
 }
 form {

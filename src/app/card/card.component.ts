@@ -14,7 +14,7 @@ export class CardComponent {
     constructor() {}
 
     hostname(link: string) {
-        return new URL(link).hostname;
+        return new URL(link).hostname.match(/\w+.\w+$/)[0];
     }
 
     renderDate(date: string) {

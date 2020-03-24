@@ -17,13 +17,13 @@ export class DashboardComponent implements OnInit {
     urls: Url[];
 
     createForm = new FormGroup({
-        longUrl: new FormControl('', [
+        redirect: new FormControl('', [
             Validators.required,
             patternValidator(
                 /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
             ),
         ]),
-        shortUrl: new FormControl('', [
+        directory: new FormControl('', [
             Validators.required,
             patternValidator(/^[\w-_]*$/),
         ]),
@@ -46,10 +46,22 @@ export class DashboardComponent implements OnInit {
     isInValid(input: AbstractControl): boolean {
         return input.invalid && (input.dirty || input.touched);
     }
-    get longUrl() {
-        return this.createForm.get('longUrl');
+    get redirect() {
+        return this.createForm.get('redirect');
     }
-    get shortUrl() {
-        return this.createForm.get('shortUrl');
+    get directory() {
+        return this.createForm.get('directory');
+    }
+
+    create() {
+        if (this.createForm.valid) {
+            const { redirect, directory } = this.createForm.value;
+            this.urlService.createUrl(directory, redirect).subscribe(
+                _ => this.fetchAllUrls(),
+                error => console.error(error)
+            );
+            this.createForm.reset();
+            // fetchAllUrls
+        }
     }
 }

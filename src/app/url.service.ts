@@ -35,4 +35,12 @@ export class UrlService {
             }
         );
     }
+
+    createUrl(directory: string, redirect: string) {
+        return this.http.post<Url>(
+            this.baseUrl,
+            { redirect, directory, owner: { ownerid: this.decoded.Id } },
+            { headers: this.headers }
+        );
+    }
 }

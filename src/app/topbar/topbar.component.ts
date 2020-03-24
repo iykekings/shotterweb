@@ -14,9 +14,10 @@ export class TopbarComponent implements OnInit {
         light: { [key: string]: string };
     } = {
         dark: {
-            '--body-bg': '#393C5B',
+            '--body-bg': '#333333',
             '--black': '#2a2a2a',
             '--white': '#ffffff',
+            '--trans-bg': '#ffffff27',
             '--font-black': '#2a2a2a',
             '--font-grey': '#636363',
             '--font-white': '#eeeeee',
@@ -28,6 +29,7 @@ export class TopbarComponent implements OnInit {
             '--body-bg': '#F9F9F9',
             '--black': '#ffffff',
             '--white': '#2a2a2a',
+            '--trans-bg': '#00000027',
             '--font-black': '#eeeeee',
             '--font-grey': '#636363',
             '--font-white': '#2a2a2a',

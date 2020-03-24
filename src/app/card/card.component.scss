@@ -1,9 +1,10 @@
 article {
     display: flex;
-    height: 100px;
+    height: 120px;
     background-color: var(--font-black);
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 2px 3px 5px #0000001f;
     .image {
         width: 150px;
         img {
@@ -17,9 +18,17 @@ article {
         width: 100%;
         flex-direction: column;
         padding: 10px;
+        text-align: left;
         h5 {
             color: var(--yellow);
             font-style: italic;
+            font-size: 10px;
+        }
+
+        p {
+            color: var(--font-grey);
+            font-size: 12px;
+            margin-top: 5px;
         }
         .meta {
             display: flex;
@@ -34,6 +43,7 @@ article {
                 align-items: center;
                 svg-icon svg {
                     width: 1.6rem;
+                    stroke: var(--yellow);
                 }
             }
         }
