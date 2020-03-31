@@ -8,6 +8,10 @@ import {
     AbstractControl,
 } from '@angular/forms';
 import { patternValidator } from 'src/shared/util';
+import { AlertService } from '../alert.service';
+import { Alert } from 'src/interfaces/Alert';
+import { Title } from '@angular/platform-browser';
+import { environment } from '../../environments/environment';
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -15,6 +19,8 @@ import { patternValidator } from 'src/shared/util';
 })
 export class DashboardComponent implements OnInit {
     urls: Url[];
+    alerts: Alert[];
+    baseUrl = environment.baseUrl;
 
     createForm = new FormGroup({
         redirect: new FormControl('', [
@@ -29,16 +35,27 @@ export class DashboardComponent implements OnInit {
         ]),
     });
 
-    constructor(private urlService: UrlService) {}
+    constructor(
+        private urlService: UrlService,
+        private al: AlertService,
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('Dashboard | Shotter');
+    }
 
     ngOnInit(): void {
         this.fetchAllUrls();
     }
 
     fetchAllUrls() {
-        this.urlService.fetchAllUrlByUser().subscribe(data => {
-            this.urls = data;
-        });
+        this.urlService.fetchAllUrlByUser().subscribe(
+            data => {
+                this.urls = data;
+            },
+            error => {
+                this.al.addAlert(new Alert(error.error?.message, 'danger'));
+            }
+        );
     }
     isValid(input: AbstractControl): boolean {
         return input.valid && (input.dirty || input.touched);
@@ -57,11 +74,19 @@ export class DashboardComponent implements OnInit {
         if (this.createForm.valid) {
             const { redirect, directory } = this.createForm.value;
             this.urlService.createUrl(directory, redirect).subscribe(
-                _ => this.fetchAllUrls(),
-                error => console.error(error)
+                _ => {
+                    this.al.addAlert(
+                        new Alert('Short url created successfully', 'success', {
+                            position: ['top', 'center'],
+                        })
+                    );
+                    this.fetchAllUrls();
+                    this.createForm.reset();
+                },
+                error => {
+                    this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                }
             );
-            this.createForm.reset();
-            // fetchAllUrls
         }
     }
 }

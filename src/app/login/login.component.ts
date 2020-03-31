@@ -9,6 +9,8 @@ import { patternValidator } from 'src/shared/util';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { AlertService } from '../alert.service';
+import { Alert } from 'src/interfaces/Alert';
 
 @Component({
     selector: 'app-login',
@@ -29,7 +31,8 @@ export class LoginComponent {
     constructor(
         public titleService: Title,
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        private al: AlertService
     ) {
         titleService.setTitle('Login | Shotter');
     }
@@ -52,10 +55,18 @@ export class LoginComponent {
             this.auth.login(this.email.value, this.password.value).subscribe(
                 jwt => {
                     localStorage.setItem('token', jwt.token);
-                    this.router.navigate(['/dashboard']);
+                    this.al.addAlert(
+                        new Alert('Logged in successfully', 'success')
+                    );
+                    setTimeout(
+                        () => this.router.navigate(['/dashboard']),
+                        1000
+                    );
+                    // this.router.navigate(['/dashboard']);
                 },
-                error => console.log('wrong password or email', error)
-                // TODO: show error on UI
+                error => {
+                    this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                }
             );
         }
     }

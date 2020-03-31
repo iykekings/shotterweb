@@ -23,15 +23,26 @@
 .custom-input {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    width: max-content;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    &:hover,
+    &:focus-within {
+        border: 1px dashed var(--yellow);
+    }
     @media screen and (max-width: 500px) {
         font-size: 1rem;
     }
     #gray-span {
-        color: var(--font-grey);
+        color: var(--font-white);
+        font-weight: 500;
     }
     input {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 500;
         background-color: transparent;
         border: none;
         text-decoration: underline;
@@ -41,26 +52,13 @@
             font-size: 1rem;
         }
     }
-    button {
-        background-color: var(--btn-bg);
-        color: var(--btn-font);
-        padding: 6px 1rem;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-weight: 500;
-        border: none;
-        margin-left: 10px;
-        float: right;
-        outline: none;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-    svg-icon.copy {
+    svg-icon.link {
         margin-right: 10px;
         width: 1.5rem;
         height: auto;
+        svg {
+            stroke: var(--yellow);
+        }
     }
     svg-icon.state {
         &.cancel > svg {
@@ -86,6 +84,22 @@ form {
         margin-bottom: 1rem;
         font-size: 2.3rem;
         font-weight: 500;
+    }
+    button {
+        background-color: var(--btn-bg);
+        color: var(--btn-font);
+        padding: 6px 1rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        margin-left: 10px;
+        float: right;
+        outline: none;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
 

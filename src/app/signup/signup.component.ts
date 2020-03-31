@@ -10,6 +10,9 @@ import { patternValidator } from 'src/shared/util';
 import { AuthService } from '../auth/auth.service';
 import Owner from 'src/interfaces/Owner';
 import { Router } from '@angular/router';
+import { AlertService } from '../alert.service';
+import { Alert } from 'src/interfaces/Alert';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: './signup.component.html',
@@ -34,7 +37,14 @@ export class SignupComponent {
         ]),
     });
 
-    constructor(private auth: AuthService, private router: Router) {}
+    constructor(
+        private auth: AuthService,
+        private router: Router,
+        private al: AlertService,
+        private titleService: Title
+    ) {
+        this.titleService.setTitle('SignUp | Shotter');
+    }
 
     get name() {
         return this.signupForm.get('name');
@@ -60,11 +70,16 @@ export class SignupComponent {
             );
             this.auth.register(owner).subscribe(
                 _ => {
-                    console.log(this.password.value);
-                    this.router.navigate(['/login']);
+                    this.al.addAlert(
+                        new Alert('Account Created - You can Login', 'success')
+                    );
+                    this.signupForm.reset();
+                    setTimeout(() => this.router.navigate(['/login']), 1500);
+                    // this.router.navigate(['/login']);
                 },
-                error => console.log('Could not create user', error)
-                // TODO: show error on UI
+                error => {
+                    this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                }
             );
         }
     }

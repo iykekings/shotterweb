@@ -1,20 +1,29 @@
-<a
-    [href]="baseUrl + '/r/' + url.directory"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    <article>
-        <div class="image">
-            <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
-        </div>
+<article #container>
+    <div class="image">
+        <svg-icon
+            src="assets/svgs/copy.svg"
+            [applyCss]="true"
+            ngxClipboard
+            [cbContent]="baseUrl + '/r/' + url.directory"
+            [container]="container"
+            (click)="addAlert()"
+        >
+        </svg-icon>
+        <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
+    </div>
+    <a
+        [href]="baseUrl + '/r/' + url.directory"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         <div class="content">
             <h4>{{ url.title || url.directory }}</h4>
-            <h5>{{ 'https://sh.ikeze.dev/' + url.directory }}</h5>
+            <h5>{{ baseUrl + '/r/' + url.directory }}</h5>
             <p>{{ url.description }}</p>
             <div class="meta">
                 <span class="link">{{ hostname(url.redirect) }}</span>
                 <div class="spacer"></div>
-                <div class="icon">
+                <div class="icon date">
                     <svg-icon
                         src="assets/svgs/calendar.svg"
                         [applyCss]="true"
@@ -30,5 +39,5 @@
                 </div>
             </div>
         </div>
-    </article>
-</a>
+    </a>
+</article>

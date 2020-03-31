@@ -7,6 +7,45 @@ app-topbar {
     padding: 2rem;
     z-index: 100;
 }
+#notification {
+    // position: fixed;
+    // top: 10%;
+    // bottom: 10%;
+    // width: 100%;
+    // padding: 2rem 5vw;
+    // z-index: 999;
+
+    app-alert {
+        position: fixed;
+        top: 10%;
+        left: 5%;
+        z-index: 999;
+        &.top {
+            position: fixed;
+            top: 10%;
+        }
+        &.bottom {
+            position: fixed;
+            bottom: 5%;
+            top: unset;
+        }
+        &.left {
+            position: fixed;
+            left: 5%;
+            right: unset;
+        }
+        &.right {
+            position: fixed;
+            left: unset;
+            right: 5%;
+        }
+        &.center {
+            position: fixed;
+            left: 45%;
+            right: unset;
+        }
+    }
+}
 main {
     display: flex;
     flex-direction: column;

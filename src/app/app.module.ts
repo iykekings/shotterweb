@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { ClipboardModule } from 'ngx-clipboard';
+import { ClipboardModule, ClipboardService } from 'ngx-clipboard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { CardComponent } from './card/card.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { CardComponent } from './card/card.component';
         LayoutComponent,
         TopbarComponent,
         CardComponent,
+        AlertComponent,
     ],
     imports: [
         BrowserModule,
@@ -42,8 +44,8 @@ import { CardComponent } from './card/card.component';
             enabled: environment.production,
         }),
     ],
-    providers: [],
+    providers: [ClipboardService],
     bootstrap: [AppComponent],
-    exports: [CardComponent],
+    exports: [CardComponent, AlertComponent],
 })
 export class AppModule {}
