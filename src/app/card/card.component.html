@@ -21,7 +21,7 @@
             <h5>{{ baseUrl + '/r/' + url.directory }}</h5>
             <p>
                 {{
-                    url.description.length > 50
+                    url.description?.length > 50
                         ? url.description.slice(0, 50) + '...'
                         : url.description
                 }}
