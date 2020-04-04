@@ -1,22 +1,67 @@
 <div id="signup">
-  <h2>Just few details</h2>
-  <form [formGroup]="signupForm" (ngSubmit)="signup()">
-    <app-input [isInValid]="isInValid(name)" [isValid]="isValid(name)" [src]="'assets/svgs/person.svg'"
-      [errorMsg]="'Must be filled'">
-      <input type="text" id="name" formControlName="name" required placeholder="Name">
-    </app-input>
-    <app-input [isInValid]="isInValid(email)" [isValid]="isValid(email)" [src]="'assets/svgs/mail.svg'"
-      [errorMsg]="'Must be a valid email'">
-      <input type="email" id="email" formControlName="email" required placeholder="Email">
-    </app-input>
-    <app-input [isInValid]="isInValid(password)" [isValid]="isValid(password)" [src]="'assets/svgs/lock.svg'"
-      [errorMsg]="'Must be a strong password'">
-      <input type="password" id="password" formControlName="password" required placeholder="Password">
-    </app-input>
-    <app-input [isInValid]="isInValid(confirmPassword)" [isValid]="isValid(confirmPassword)"
-      [src]="'assets/svgs/lock.svg'" [errorMsg]="'Must match password'">
-      <input type="password" id="cpassword" formControlName="confirmPassword" required placeholder="Confirm Password">
-    </app-input>
-    <button type="submit">On y va!</button>
-  </form>
+    <h2>Just few details</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <app-input
+            [isInValid]="isInValid(name)"
+            [isValid]="isValid(name)"
+            [src]="'assets/svgs/person.svg'"
+            [errorMsg]="'Must be filled'"
+        >
+            <input
+                type="text"
+                id="name"
+                formControlName="name"
+                required
+                placeholder="Name"
+            />
+        </app-input>
+        <app-input
+            [isInValid]="isInValid(email)"
+            [isValid]="isValid(email)"
+            [src]="'assets/svgs/mail.svg'"
+            [errorMsg]="'Must be a valid email'"
+        >
+            <input
+                type="email"
+                id="email"
+                formControlName="email"
+                required
+                placeholder="Email"
+            />
+        </app-input>
+        <app-input
+            [isInValid]="isInValid(password)"
+            [isValid]="isValid(password)"
+            [src]="'assets/svgs/lock.svg'"
+            [errorMsg]="'Must be a strong password'"
+        >
+            <input
+                type="password"
+                id="password"
+                formControlName="password"
+                required
+                placeholder="Password"
+            />
+        </app-input>
+        <app-input
+            [isInValid]="isInValid(confirmPassword)"
+            [isValid]="isValid(confirmPassword)"
+            [src]="'assets/svgs/lock.svg'"
+            [errorMsg]="'Must match password'"
+        >
+            <input
+                type="password"
+                id="cpassword"
+                formControlName="confirmPassword"
+                required
+                placeholder="Confirm Password"
+            />
+        </app-input>
+        <button
+            type="submit"
+            [disabled]="submitting || (!signupForm.valid && signupForm.dirty)"
+        >
+            On y va!
+        </button>
+    </form>
 </div>

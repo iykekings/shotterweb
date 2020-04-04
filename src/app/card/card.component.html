@@ -4,7 +4,7 @@
             src="assets/svgs/copy.svg"
             [applyCss]="true"
             ngxClipboard
-            [cbContent]="baseUrl + '/r/' + url.directory"
+            [cbContent]="'sh.ikeze.dev/r/' + url.directory"
             [container]="container"
             (click)="addAlert()"
         >
@@ -12,13 +12,13 @@
         <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
     </div>
     <a
-        [href]="baseUrl + '/r/' + url.directory"
+        [href]="'https://sh.ikeze.dev/r/' + url.directory"
         target="_blank"
         rel="noopener noreferrer"
     >
         <div class="content">
             <h4>{{ url.title || url.directory }}</h4>
-            <h5>{{ baseUrl + '/r/' + url.directory }}</h5>
+            <h5>{{ 'sh.ikeze.dev/r/' + url.directory }}</h5>
             <p>
                 {{
                     url.description?.length > 50

@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import Url from 'src/interfaces/Url';
-import { environment } from '../../environments/environment';
 import { AlertService } from '../alert.service';
 import { Alert } from 'src/interfaces/Alert';
 
@@ -12,7 +11,6 @@ import { Alert } from 'src/interfaces/Alert';
 })
 export class CardComponent {
     @Input() url: Url;
-    baseUrl = environment.baseUrl;
     constructor(private al: AlertService) {}
 
     hostname(link: string) {

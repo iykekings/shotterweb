@@ -19,6 +19,7 @@ import { Title } from '@angular/platform-browser';
     styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
+    submitting = false;
     signupForm = new FormGroup({
         name: new FormControl('', [Validators.required]),
         email: new FormControl('', [
@@ -63,6 +64,7 @@ export class SignupComponent {
 
     signup() {
         if (this.signupForm.valid) {
+            this.submitting = true;
             const owner = new Owner(
                 this.email.value,
                 this.name.value,
@@ -74,11 +76,12 @@ export class SignupComponent {
                         new Alert('Account Created - You can Login', 'success')
                     );
                     this.signupForm.reset();
+                    this.submitting = false;
                     setTimeout(() => this.router.navigate(['/login']), 1500);
-                    // this.router.navigate(['/login']);
                 },
                 error => {
                     this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                    this.submitting = false;
                 }
             );
         }

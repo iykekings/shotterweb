@@ -18,6 +18,7 @@ import { Alert } from 'src/interfaces/Alert';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+    submitting = false;
     loginForm = new FormGroup({
         email: new FormControl('', [
             Validators.required,
@@ -52,6 +53,7 @@ export class LoginComponent {
 
     login() {
         if (this.loginForm.valid) {
+            this.submitting = true;
             this.auth.login(this.email.value, this.password.value).subscribe(
                 jwt => {
                     localStorage.setItem('token', jwt.token);
@@ -62,10 +64,11 @@ export class LoginComponent {
                         () => this.router.navigate(['/dashboard']),
                         1000
                     );
-                    // this.router.navigate(['/dashboard']);
+                    this.submitting = false;
                 },
                 error => {
                     this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                    this.submitting = false;
                 }
             );
         }

@@ -11,7 +11,6 @@ import { patternValidator } from 'src/shared/util';
 import { AlertService } from '../alert.service';
 import { Alert } from 'src/interfaces/Alert';
 import { Title } from '@angular/platform-browser';
-import { environment } from '../../environments/environment';
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -20,7 +19,7 @@ import { environment } from '../../environments/environment';
 export class DashboardComponent implements OnInit {
     urls: Url[];
     alerts: Alert[];
-    baseUrl = environment.baseUrl;
+    submitting = false;
 
     createForm = new FormGroup({
         redirect: new FormControl('', [
@@ -72,6 +71,7 @@ export class DashboardComponent implements OnInit {
 
     create() {
         if (this.createForm.valid) {
+            this.submitting = true;
             const { redirect, directory } = this.createForm.value;
             this.urlService.createUrl(directory, redirect).subscribe(
                 _ => {
@@ -82,9 +82,11 @@ export class DashboardComponent implements OnInit {
                     );
                     this.fetchAllUrls();
                     this.createForm.reset();
+                    this.submitting = false;
                 },
                 error => {
                     this.al.addAlert(new Alert(error.error?.message, 'danger'));
+                    this.submitting = false;
                 }
             );
         }

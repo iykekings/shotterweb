@@ -1,14 +1,41 @@
 <div id="login">
-  <h2>Welcome Back!</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <app-input [isInValid]="isInValid(email)" [isValid]="isValid(email)" [src]="'assets/svgs/mail.svg'"
-      [errorMsg]="'Must be a valid email'" [id]="'email'">
-      <input type="email" id="email" formControlName="email" required placeholder="Email">
-    </app-input>
-    <app-input [isInValid]="isInValid(password)" [isValid]="isValid(password)" [src]="'assets/svgs/lock.svg'"
-      [errorMsg]="'Must be a strong password'" [id]="'password'">
-      <input type="password" id="password" formControlName="password" required placeholder="Password">
-    </app-input>
-    <button type="submit">Let's Roll</button>
-  </form>
+    <h2>Welcome Back!</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <app-input
+            [isInValid]="isInValid(email)"
+            [isValid]="isValid(email)"
+            [src]="'assets/svgs/mail.svg'"
+            [errorMsg]="'Must be a valid email'"
+            [id]="'email'"
+        >
+            <input
+                type="email"
+                id="email"
+                formControlName="email"
+                required
+                placeholder="Email"
+            />
+        </app-input>
+        <app-input
+            [isInValid]="isInValid(password)"
+            [isValid]="isValid(password)"
+            [src]="'assets/svgs/lock.svg'"
+            [errorMsg]="'Must be filled'"
+            [id]="'password'"
+        >
+            <input
+                type="password"
+                id="password"
+                formControlName="password"
+                required
+                placeholder="Password"
+            />
+        </app-input>
+        <button
+            type="submit"
+            [disabled]="submitting || (!loginForm.valid && loginForm.dirty)"
+        >
+            Let's Roll
+        </button>
+    </form>
 </div>

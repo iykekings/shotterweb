@@ -96,7 +96,9 @@ form {
         margin-left: 10px;
         float: right;
         outline: none;
-
+        &:disabled {
+            filter: grayscale(1);
+        }
         &:hover {
             opacity: 0.8;
         }
