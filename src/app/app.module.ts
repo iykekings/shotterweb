@@ -19,6 +19,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { CardComponent } from './card/card.component';
 import { AlertComponent } from './alert/alert.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { AlertComponent } from './alert/alert.component';
         TopbarComponent,
         CardComponent,
         AlertComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,

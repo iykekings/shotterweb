@@ -48,6 +48,15 @@ export class TopbarComponent implements OnInit {
             .subscribe(event => {
                 this.link = event.url;
             });
+        window
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', e => {
+                if (e.matches) {
+                    this.changeTheme('light');
+                } else {
+                    this.changeTheme('dark');
+                }
+            });
     }
 
     logout() {
@@ -67,8 +76,8 @@ export class TopbarComponent implements OnInit {
             }
         }
     }
-    changeTheme() {
-        const currentState = localStorage.getItem('theme');
+    changeTheme(state?: string) {
+        const currentState = state || localStorage.getItem('theme');
         const newState = !currentState
             ? 'light'
             : currentState === 'dark'
