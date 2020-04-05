@@ -30,7 +30,7 @@ export class SignupComponent {
         ]),
         password: new FormControl('', [
             Validators.required,
-            patternValidator(/(?=^.{6,}$)(?=.*\d)(?=.*[A-Z])(?=.*\W).*$/),
+            patternValidator(/(?=^.{6,}$)(?=.*\d)(?=.*[A-Z]).*$/),
         ]),
         confirmPassword: new FormControl('', [
             Validators.required,
@@ -71,7 +71,7 @@ export class SignupComponent {
                 this.password.value
             );
             this.auth.register(owner).subscribe(
-                _ => {
+                (_) => {
                     this.al.addAlert(
                         new Alert('Account Created - You can Login', 'success')
                     );
@@ -79,7 +79,7 @@ export class SignupComponent {
                     this.submitting = false;
                     setTimeout(() => this.router.navigate(['/login']), 1500);
                 },
-                error => {
+                (error) => {
                     this.al.addAlert(new Alert(error.error?.message, 'danger'));
                     this.submitting = false;
                 }

@@ -16,6 +16,12 @@
             resize: none;
             height: 40px;
             outline: none;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-text-fill-color: var(--font-white);
+                transition: background-color 5000s ease-in-out 0s;
+            }
         }
     }
 }
@@ -48,6 +54,12 @@
         text-decoration: underline;
         outline: none;
         color: var(--yellow);
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: var(--yellow);
+            transition: background-color 5000s ease-in-out 0s;
+        }
         @media screen and (max-width: 500px) {
             font-size: 1rem;
         }

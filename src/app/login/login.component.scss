@@ -39,6 +39,12 @@ input {
     background-color: transparent;
     color: var(--font-white);
     padding: 0 5px;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        -webkit-text-fill-color: var(--font-white);
+        transition: background-color 5000s ease-in-out 0s;
+    }
 }
 
 form {
