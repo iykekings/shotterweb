@@ -31,11 +31,19 @@
                 placeholder="Password"
             />
         </app-input>
-        <button
-            type="submit"
-            [disabled]="submitting || (!loginForm.valid && loginForm.dirty)"
-        >
-            Let's Roll
-        </button>
+        <div class="btm">
+            <button
+                type="submit"
+                [disabled]="submitting || (!loginForm.valid && loginForm.dirty)"
+            >
+                Let's Roll
+            </button>
+            <div class="sk-folding-cube" [class]="submitting ? 'show' : ''">
+                <div
+                    *ngFor="let i of [1, 2, 3, 4]"
+                    [class]="'sk-cube' + i + ' sk-cube'"
+                ></div>
+            </div>
+        </div>
     </form>
 </div>

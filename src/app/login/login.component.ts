@@ -55,18 +55,12 @@ export class LoginComponent {
         if (this.loginForm.valid) {
             this.submitting = true;
             this.auth.login(this.email.value, this.password.value).subscribe(
-                jwt => {
+                (jwt) => {
                     localStorage.setItem('token', jwt.token);
-                    this.al.addAlert(
-                        new Alert('Logged in successfully', 'success')
-                    );
-                    setTimeout(
-                        () => this.router.navigate(['/dashboard']),
-                        1000
-                    );
                     this.submitting = false;
+                    this.router.navigate(['/dashboard']);
                 },
-                error => {
+                (error) => {
                     this.al.addAlert(new Alert(error.error?.message, 'danger'));
                     this.submitting = false;
                 }

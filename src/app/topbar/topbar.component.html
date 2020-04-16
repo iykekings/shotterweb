@@ -1,5 +1,9 @@
 <div class="topbar">
-    <div class="circle" (click)="changeTheme()"></div>
+    <svg-icon
+        [applyCss]="true"
+        src="assets/svgs/paint.svg"
+        (click)="changeTheme()"
+    ></svg-icon>
     <a *ngIf="link === '/' || link === '/signup'" routerLink="/login">
         Login
     </a>

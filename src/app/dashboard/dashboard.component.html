@@ -26,7 +26,7 @@
                 required
                 id="directory"
                 formControlName="directory"
-                placeholder="customise"
+                placeholder="short url"
             />
             <svg-icon
                 class="tiny_icon state"
@@ -43,12 +43,22 @@
             >
             </svg-icon>
         </div>
-        <button
-            type="submit"
-            [disabled]="submitting || (!createForm.valid && createForm.dirty)"
-        >
-            Create
-        </button>
+        <div class="btm">
+            <button
+                type="submit"
+                [disabled]="
+                    submitting || (!createForm.valid && createForm.dirty)
+                "
+            >
+                Create
+            </button>
+            <div class="sk-folding-cube" [class]="submitting ? 'show' : ''">
+                <div
+                    *ngFor="let i of [1, 2, 3, 4]"
+                    [class]="'sk-cube' + i + ' sk-cube'"
+                ></div>
+            </div>
+        </div>
     </form>
     <section id="created-links">
         <h2>Created links</h2>
