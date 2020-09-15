@@ -1,0 +1,125 @@
+#dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 1rem;
+}
+
+#dash-wrapper {
+    padding: 10vw;
+    app-input {
+        textarea {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 1rem;
+            resize: none;
+            height: 40px;
+            outline: none;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-text-fill-color: var(--font-white);
+                transition: background-color 5000s ease-in-out 0s;
+            }
+        }
+    }
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    width: max-content;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    &:hover,
+    &:focus-within {
+        border: 1px dashed var(--yellow);
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 1rem;
+    }
+    #gray-span {
+        color: var(--font-white);
+        font-weight: 500;
+    }
+    input {
+        font-size: 1.2rem;
+        font-weight: 500;
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        outline: none;
+        color: var(--yellow);
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: var(--yellow);
+            transition: background-color 5000s ease-in-out 0s;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: 1rem;
+        }
+    }
+    svg-icon.link {
+        margin-right: 10px;
+        width: 1.5rem;
+        height: auto;
+        svg {
+            stroke: var(--yellow);
+        }
+    }
+    svg-icon.state {
+        &.cancel > svg {
+            width: 10px;
+        }
+        &.hidden {
+            display: none;
+        }
+        &.show {
+            display: block;
+        }
+        & > svg {
+            width: 1rem;
+        }
+    }
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 2.3rem;
+        font-weight: 500;
+    }
+    button {
+        background-color: var(--btn-bg);
+        color: var(--btn-font);
+        padding: 6px 1rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        margin-right: 2rem;
+        outline: none;
+        &:disabled {
+            filter: grayscale(1);
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+#created-links {
+    text-align: center;
+    margin-top: 4rem;
+    h2 {
+        margin-bottom: 1rem;
+    }
+}

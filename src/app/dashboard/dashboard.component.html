@@ -1,1 +1,69 @@
-<p>dashboard works!</p>
+<div id="dash-wrapper">
+    <form [formGroup]="createForm" (ngSubmit)="create()">
+        <h2>Shorten Url</h2>
+        <app-input
+            [isInValid]="isInValid(redirect)"
+            [isValid]="isValid(redirect)"
+            [errorMsg]="'Must be a valid URL'"
+        >
+            <textarea
+                type="url"
+                id="redirect"
+                formControlName="redirect"
+                required
+                placeholder="Paste long URL"
+            ></textarea>
+        </app-input>
+        <div class="custom-input">
+            <svg-icon
+                [applyCss]="true"
+                src="assets/svgs/link.svg"
+                class="link"
+            ></svg-icon>
+            <span id="gray-span">{{ 'sh.ikeze.dev/r/' }}</span>
+            <input
+                type="text"
+                required
+                id="directory"
+                formControlName="directory"
+                placeholder="short url"
+            />
+            <svg-icon
+                class="tiny_icon state"
+                [class]="isValid(directory) ? 'show' : 'hidden'"
+                [applyCss]="true"
+                src="assets/svgs/check.svg"
+            >
+            </svg-icon>
+            <svg-icon
+                class="tiny_icon cancel state"
+                [class]="isInValid(directory) ? 'show' : 'hidden'"
+                [applyCss]="true"
+                src="assets/svgs/cancel.svg"
+            >
+            </svg-icon>
+        </div>
+        <div class="btm">
+            <button
+                type="submit"
+                [disabled]="
+                    submitting || (!createForm.valid && createForm.dirty)
+                "
+            >
+                Create
+            </button>
+            <div class="sk-folding-cube" [class]="submitting ? 'show' : ''">
+                <div
+                    *ngFor="let i of [1, 2, 3, 4]"
+                    [class]="'sk-cube' + i + ' sk-cube'"
+                ></div>
+            </div>
+        </div>
+    </form>
+    <section id="created-links">
+        <h2>Created links</h2>
+        <section id="dashboard">
+            <app-card *ngFor="let url of urls" [url]="url"></app-card>
+        </section>
+    </section>
+</div>

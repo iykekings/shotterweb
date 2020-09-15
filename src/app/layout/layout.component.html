@@ -1,0 +1,34 @@
+<app-topbar></app-topbar>
+<div id="notification" *ngIf="alerts">
+    <app-alert
+        *ngFor="let alert of alerts"
+        [data]="alert"
+        (delete)="deleteAlert($event)"
+        [class]="
+            alert.config?.position
+                ? alert.config?.position.join(' ')
+                : 'top right'
+        "
+    >
+    </app-alert>
+</div>
+<main>
+    <svg-icon id="moon" [applyCss]="true" src="assets/svgs/moon.svg"></svg-icon>
+    <nav>
+        <a routerLink="/">
+            <svg-icon
+                id="logo"
+                [applyCss]="true"
+                src="assets/svgs/logo.svg"
+            ></svg-icon>
+            <div id="logo-text">
+                <h1>Shotter</h1>
+                <span>Beta</span>
+            </div>
+        </a>
+    </nav>
+
+    <section>
+        <ng-content></ng-content>
+    </section>
+</main>

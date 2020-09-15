@@ -1,0 +1,42 @@
+<article [class]="data.type">
+    <div
+        [ngSwitch]="data.type"
+        [class]="data.type"
+        id="icon_case"
+        [style]="'background-color: ' + bg()"
+        (click)="requestDelete()"
+    >
+        <svg-icon
+            *ngSwitchCase="'success'"
+            src="assets/svgs/check.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <svg-icon
+            *ngSwitchCase="'warning'"
+            src="assets/svgs/warning.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <svg-icon
+            *ngSwitchCase="'danger'"
+            src="assets/svgs/cancel.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <svg-icon
+            *ngSwitchCase="'confirm'"
+            src="assets/svgs/confirm.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <svg-icon
+            *ngSwitchCase="'info'"
+            src="assets/svgs/info.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <svg-icon
+            *ngSwitchDefault
+            src="assets/svgs/info.svg"
+            [applyCss]="true"
+        ></svg-icon>
+        <!-- <div *ngSwitchDefault>output2</div> -->
+    </div>
+    <p>{{ data.message }}</p>
+</article>

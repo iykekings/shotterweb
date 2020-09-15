@@ -10,7 +10,6 @@ export class InputComponent implements OnInit {
   @Input() isValid: boolean;
   @Input() isInValid: boolean;
   @Input() src: string;
-  @Input() id: string;
   @Input() errorMsg: string;
   constructor() { }
 

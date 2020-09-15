@@ -1,0 +1,15 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    a {
+        text-decoration: none;
+        color: var(--yellow);
+        font-weight: 600;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    svg-icon svg {
+        margin: 0 2rem;
+        width: 2rem;
+    }
+}

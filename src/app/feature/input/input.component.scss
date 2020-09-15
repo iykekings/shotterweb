@@ -1,10 +1,11 @@
 .input {
-  padding: 5px 1rem;
+  margin-bottom: 10px;
   .sub-input {
     display: flex;
     align-items: center;
+    border-radius: 5px;
     padding: 10px 1rem;
-    border: 1px solid rgba(27, 121, 158, 0.096);
+    border: 1px solid var(--white);
     &.valid {
       border: 1px solid rgba(20, 177, 80, 0.349);
     }
@@ -13,7 +14,8 @@
       border: none;
       outline: none;
       font-size: 1.2rem;
-      color: #636363;
+      color: var(--font-white);
+      background-color: transparent;
       padding: 0 5px;
     }
   }

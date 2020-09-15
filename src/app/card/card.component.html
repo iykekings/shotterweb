@@ -1,0 +1,49 @@
+<article #container>
+    <div class="image">
+        <svg-icon
+            src="assets/svgs/copy.svg"
+            [applyCss]="true"
+            ngxClipboard
+            [cbContent]="'sh.ikeze.dev/r/' + url.directory"
+            [container]="container"
+            (click)="addAlert()"
+        >
+        </svg-icon>
+        <img [src]="url.image || 'assets/avatar.png'" [alt]="url.title" />
+    </div>
+    <a
+        [href]="'https://sh.ikeze.dev/r/' + url.directory"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <div class="content">
+            <h4>{{ url.title || url.directory }}</h4>
+            <h5>{{ 'sh.ikeze.dev/r/' + url.directory }}</h5>
+            <p>
+                {{
+                    url.description?.length > 50
+                        ? url.description.slice(0, 50) + '...'
+                        : url.description
+                }}
+            </p>
+            <div class="meta">
+                <span class="link">{{ hostname(url.redirect) }}</span>
+                <div class="spacer"></div>
+                <div class="icon date">
+                    <svg-icon
+                        src="assets/svgs/calendar.svg"
+                        [applyCss]="true"
+                    ></svg-icon>
+                    <span>{{ renderDate(url.createdAt) }}</span>
+                </div>
+                <div class="icon">
+                    <svg-icon
+                        src="assets/svgs/click.svg"
+                        [applyCss]="true"
+                    ></svg-icon>
+                    <span>{{ url.clicks }}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
